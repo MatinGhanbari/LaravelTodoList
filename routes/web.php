@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TODOListItemController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('/saveNewItemRoute', [TODOListItemController::class, 'saveNewItem'])->name('saveNewItem');
