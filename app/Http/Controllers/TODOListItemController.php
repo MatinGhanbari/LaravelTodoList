@@ -30,9 +30,8 @@ class TODOListItemController extends Controller
 
     public function clearList(Request $request)
     {
-        Log::info(json_encode($request));
-//        foreach ($request->items as $item)
-//            ListItem::find($item->id)->delete();
+        foreach (\App\Models\ListItem::all() as $item)
+            ListItem::find($item->id)->delete();
 
         return redirect('/');
     }
