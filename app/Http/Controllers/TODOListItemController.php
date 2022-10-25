@@ -18,4 +18,22 @@ class TODOListItemController extends Controller
 
         return redirect('/');
     }
+
+    public function setDone(Request $request)
+    {
+        $item = ListItem::find($request->id);
+        $item->is_done = 1;
+        $item->save();
+
+        return redirect('/');
+    }
+
+    public function clearList(Request $request)
+    {
+        Log::info(json_encode($request));
+//        foreach ($request->items as $item)
+//            ListItem::find($item->id)->delete();
+
+        return redirect('/');
+    }
 }

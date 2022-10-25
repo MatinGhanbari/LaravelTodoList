@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TODOListItemController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,8 @@ use App\Http\Controllers\TODOListItemController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['listItems' => \App\Models\ListItem::all()->sortBy('is_done')]);
 });
 Route::post('/saveNewItemRoute', [TODOListItemController::class, 'saveNewItem'])->name('saveNewItem');
+Route::post('/doneRoute', [TODOListItemController::class, 'setDone'])->name('setDone');
+Route::post('/clearRoute', [TODOListItemController::class, 'clearList'])->name('clearList');

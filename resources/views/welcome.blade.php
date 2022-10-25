@@ -407,6 +407,7 @@
 
         <h1>TODO LIST</h1>
 
+
         <h3>Add new item</h3>
         <form method="post" action="{{ route('saveNewItem') }}" accept-charset="UTF-8">
 
@@ -418,6 +419,59 @@
             <button type="submit">save</button>
 
         </form>
+        <div class="mt-8" style="font-size: 30px">
+            <table style="border: 1px solid #ffffff;overflow-y:scroll;height:400px;width:auto;display:block;">
+
+                <tr style="top: 0;z-index: 2;position: sticky;background-color: #1a202c;">
+                    <th style="border: 1px solid #ffffff;">Title</th>
+                    <th style="border: 1px solid #ffffff;" colspan="2">Desc.</th>
+
+                </tr>
+
+                @foreach($listItems as $item)
+
+                    <tr>
+                        <td style="border: 1px solid #ffffff;">
+                            @if($item->is_done!=0)
+                                <s>@endif
+                                    {{$item->title}}
+                                    @if($item->is_done!=0)</s>
+                            @endif
+                        </td>
+                        <td style="border: 1px solid #ffffff;">
+                            @if($item->is_done!=0)
+                                <s>@endif
+                                    {{$item->description}}
+                                    @if($item->is_done!=0)</s>
+                            @endif
+                        </td>
+
+                        <td>
+                            <form method="post" accept-charset="UTF-8" action="{{ route('setDone') }}">
+                                {{ csrf_field() }}
+                                <input hidden name="id" value="{{ $item->id }}">
+                                <button type="submit">done</button>
+                            </form>
+                        </td>
+                    </tr>
+
+                @endforeach
+
+            </table>
+        </div>
+
+        <div class="mt-8">
+
+{{--            <form method="post" accept-charset="UTF-8" action="{{ route('clearList') }}">--}}
+
+{{--                {{ csrf_field() }}--}}
+{{--                <label hidden name="items"">--}}
+{{--                <button type="submit">clear</button>--}}
+{{--                --}}
+{{--            </form>--}}
+
+        </div>
+
 
     </div>
 
