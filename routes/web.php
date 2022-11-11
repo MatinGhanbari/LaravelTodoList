@@ -19,4 +19,4 @@ Route::get('/', function () {
 });
 Route::post('/saveNewItemRoute', [TODOListItemController::class, 'saveNewItem'])->name('saveNewItem');
 Route::post('/doneRoute', [TODOListItemController::class, 'setDone'])->name('setDone');
-Route::get('/clearRoute', [TODOListItemController::class, 'clearList'])->name('clearList');
+Route::post('/clearRoute', [TODOListItemController::class, 'clearList'])->name('clearList');

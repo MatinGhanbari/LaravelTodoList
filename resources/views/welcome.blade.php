@@ -462,7 +462,13 @@
 
         <div class="mt-8">
 
-            <a href="{{ route('clearList') }}">clear</a>
+{{--            <form method="post" accept-charset="UTF-8" action="{{ route('clearList') }}">--}}
+
+{{--                {{ csrf_field() }}--}}
+{{--                <label hidden name="items"">--}}
+{{--                <button type="submit">clear</button>--}}
+{{--                --}}
+{{--            </form>--}}
 
         </div>
 
