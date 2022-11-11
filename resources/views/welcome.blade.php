@@ -460,17 +460,11 @@
             </table>
         </div>
 
-        <div class="mt-8">
+{{--        <div class="mt-8">--}}
 
-{{--            <form method="post" accept-charset="UTF-8" action="{{ route('clearList') }}">--}}
+        {{--            <a href="{{ route('clearList') }}">Clear List</a>--}}
 
-{{--                {{ csrf_field() }}--}}
-{{--                <label hidden name="items"">--}}
-{{--                <button type="submit">clear</button>--}}
-{{--                --}}
-{{--            </form>--}}
-
-        </div>
+        {{--        </div>--}}
 
 
     </div>
