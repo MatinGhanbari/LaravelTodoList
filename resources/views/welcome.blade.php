@@ -3,472 +3,360 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Laravel</title>
-
-    <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
     <style>
-        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-        html {
-            line-height: 1.15;
-            -webkit-text-size-adjust: 100%
-        }
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
 
-        body {
-            margin: 0
-        }
-
-        a {
-            background-color: transparent
-        }
-
-        [hidden] {
-            display: none
-        }
-
-        html {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-            line-height: 1.5
-        }
-
-        *, :after, :before {
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
-            border: 0 solid #e2e8f0
         }
 
-        a {
-            color: inherit;
-            text-decoration: inherit
+        :root {
+            --bg-accent: hsl(210, 8%, 90%);
+            --text-clr: hsl(210, 47%, 60%);
+            --icon-clr: rgb(17, 175, 38);
+
+            --space-2: 2rem;
+            --space-175: 1.75rem;
+            --space-15: 1.5rem;
+            --space-125: 1.25rem;
+            --space-1: 1rem;
+            --space-05: 0.5rem;
+            --space-025: 0.25rem;
+
+            --easing: cubic-bezier(0.5, 0, 0.2, 1);
+            --easing1: cubic-bezier(0.4, 0.3, 0.65, 1);
+            --easing2: cubic-bezier(0.8, 0, 0.6, 1);
+            --easing3: cubic-bezier(0, 0.2, 0.25, 1);
+
+            --sharp-shadow: 0px 2px 1px 0 #0001, 0 0.125em 0.25em 0.0625em #0002,
+            0 0.2em 0.5em #0002;
         }
 
-        svg, video {
-            display: block;
-            vertical-align: middle
+        li {
+            list-style: none;
         }
 
-        video {
-            max-width: 100%;
-            height: auto
-        }
-
-        .bg-white {
-            --bg-opacity: 1;
-            background-color: #fff;
-            background-color: rgba(255, 255, 255, var(--bg-opacity))
-        }
-
-        .bg-gray-100 {
-            --bg-opacity: 1;
-            background-color: #f7fafc;
-            background-color: rgba(247, 250, 252, var(--bg-opacity))
-        }
-
-        .border-gray-200 {
-            --border-opacity: 1;
-            border-color: #edf2f7;
-            border-color: rgba(237, 242, 247, var(--border-opacity))
-        }
-
-        .border-t {
-            border-top-width: 1px
-        }
-
-        .flex {
-            display: flex
-        }
-
-        .grid {
-            display: grid
-        }
-
-        .hidden {
-            display: none
-        }
-
-        .items-center {
-            align-items: center
-        }
-
-        .justify-center {
-            justify-content: center
-        }
-
-        .font-semibold {
-            font-weight: 600
-        }
-
-        .h-5 {
-            height: 1.25rem
-        }
-
-        .h-8 {
-            height: 2rem
-        }
-
-        .h-16 {
-            height: 4rem
-        }
-
-        .text-sm {
-            font-size: .875rem
-        }
-
-        .text-lg {
-            font-size: 1.125rem
-        }
-
-        .leading-7 {
-            line-height: 1.75rem
-        }
-
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto
-        }
-
-        .ml-1 {
-            margin-left: .25rem
-        }
-
-        .mt-2 {
-            margin-top: .5rem
-        }
-
-        .mr-2 {
-            margin-right: .5rem
-        }
-
-        .ml-2 {
-            margin-left: .5rem
-        }
-
-        .mt-4 {
-            margin-top: 1rem
-        }
-
-        .ml-4 {
-            margin-left: 1rem
-        }
-
-        .mt-8 {
-            margin-top: 2rem
-        }
-
-        .ml-12 {
-            margin-left: 3rem
-        }
-
-        .-mt-px {
-            margin-top: -1px
-        }
-
-        .max-w-6xl {
-            max-width: 72rem
-        }
-
-        .min-h-screen {
-            min-height: 100vh
-        }
-
-        .overflow-hidden {
-            overflow: hidden
-        }
-
-        .p-6 {
-            padding: 1.5rem
-        }
-
-        .py-4 {
-            padding-top: 1rem;
-            padding-bottom: 1rem
-        }
-
-        .px-6 {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem
-        }
-
-        .pt-8 {
-            padding-top: 2rem
-        }
-
-        .fixed {
-            position: fixed
-        }
-
-        .relative {
-            position: relative
-        }
-
-        .top-0 {
-            top: 0
-        }
-
-        .right-0 {
-            right: 0
-        }
-
-        .shadow {
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06)
-        }
-
-        .text-center {
-            text-align: center
-        }
-
-        .text-gray-200 {
-            --text-opacity: 1;
-            color: #edf2f7;
-            color: rgba(237, 242, 247, var(--text-opacity))
-        }
-
-        .text-gray-300 {
-            --text-opacity: 1;
-            color: #e2e8f0;
-            color: rgba(226, 232, 240, var(--text-opacity))
-        }
-
-        .text-gray-400 {
-            --text-opacity: 1;
-            color: #cbd5e0;
-            color: rgba(203, 213, 224, var(--text-opacity))
-        }
-
-        .text-gray-500 {
-            --text-opacity: 1;
-            color: #a0aec0;
-            color: rgba(160, 174, 192, var(--text-opacity))
-        }
-
-        .text-gray-600 {
-            --text-opacity: 1;
-            color: #718096;
-            color: rgba(113, 128, 150, var(--text-opacity))
-        }
-
-        .text-gray-700 {
-            --text-opacity: 1;
-            color: #4a5568;
-            color: rgba(74, 85, 104, var(--text-opacity))
-        }
-
-        .text-gray-900 {
-            --text-opacity: 1;
-            color: #1a202c;
-            color: rgba(26, 32, 44, var(--text-opacity))
-        }
-
-        .underline {
-            text-decoration: underline
-        }
-
-        .antialiased {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale
-        }
-
-        .w-5 {
-            width: 1.25rem
-        }
-
-        .w-8 {
-            width: 2rem
-        }
-
-        .w-auto {
-            width: auto
-        }
-
-        .grid-cols-1 {
-            grid-template-columns:repeat(1, minmax(0, 1fr))
-        }
-
-        @media (min-width: 640px) {
-            .sm\:rounded-lg {
-                border-radius: .5rem
-            }
-
-            .sm\:block {
-                display: block
-            }
-
-            .sm\:items-center {
-                align-items: center
-            }
-
-            .sm\:justify-start {
-                justify-content: flex-start
-            }
-
-            .sm\:justify-between {
-                justify-content: space-between
-            }
-
-            .sm\:h-20 {
-                height: 5rem
-            }
-
-            .sm\:ml-0 {
-                margin-left: 0
-            }
-
-            .sm\:px-6 {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem
-            }
-
-            .sm\:pt-0 {
-                padding-top: 0
-            }
-
-            .sm\:text-left {
-                text-align: left
-            }
-
-            .sm\:text-right {
-                text-align: right
-            }
-        }
-
-        @media (min-width: 768px) {
-            .md\:border-t-0 {
-                border-top-width: 0
-            }
-
-            .md\:border-l {
-                border-left-width: 1px
-            }
-
-            .md\:grid-cols-2 {
-                grid-template-columns:repeat(2, minmax(0, 1fr))
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .lg\:px-8 {
-                padding-left: 2rem;
-                padding-right: 2rem
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .dark\:bg-gray-800 {
-                --bg-opacity: 1;
-                background-color: #2d3748;
-                background-color: rgba(45, 55, 72, var(--bg-opacity))
-            }
-
-            .dark\:bg-gray-900 {
-                --bg-opacity: 1;
-                background-color: #1a202c;
-                background-color: rgba(26, 32, 44, var(--bg-opacity))
-            }
-
-            .dark\:border-gray-700 {
-                --border-opacity: 1;
-                border-color: #4a5568;
-                border-color: rgba(74, 85, 104, var(--border-opacity))
-            }
-
-            .dark\:text-white {
-                --text-opacity: 1;
-                color: #fff;
-                color: rgba(255, 255, 255, var(--text-opacity))
-            }
-
-            .dark\:text-gray-400 {
-                --text-opacity: 1;
-                color: #cbd5e0;
-                color: rgba(203, 213, 224, var(--text-opacity))
-            }
-
-            .dark\:text-gray-500 {
-                --tw-text-opacity: 1;
-                color: #6b7280;
-                color: rgba(107, 114, 128, var(--tw-text-opacity))
-            }
-        }
-    </style>
-
-    <style>
         body {
-            font-family: 'Nunito', sans-serif;
+            font: 16px/1.2 "Montserrat", sans-serif;
+            /*background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);*/
+            background: linear-gradient(45deg, hsl(46, 81%, 75%), hsl(284, 64%, 79%));
         }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 60rem;
+            min-height: 100vh;
+            margin-inline: auto;
+            padding: 2rem;
+        }
+
+        .todo__container {
+            --header-height: calc(100% / 2.5);
+            --content-height: calc(100% - var(--header-height));
+            width: 19rem;
+            height: 30rem;
+            background-color: #fff;
+            border-radius: var(--space-05);
+            box-shadow: var(--sharp-shadow);
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            height: var(--header-height);
+            overflow: hidden;
+            background-image: url("https://www.incimages.com/uploaded_files/image/1920x1080/getty_913407976_420417.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .figure {
+            display: flex;
+            justify-content: end;
+            position: relative;
+            background-image: url("https://www.incimages.com/uploaded_files/image/1920x1080/getty_913407976_420417.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .title__caption {
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+            line-height: 1.1;
+            top: calc(var(--header-height) + var(--space-2));
+            position: absolute;
+            margin-inline: var(--space-05);
+        }
+
+        .title {
+            align-self: flex-end;
+            text-shadow: -2px 3px 4px #666;
+            color: #fff;
+        }
+
+        .title--primary {
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .title--secondary {
+            font-weight: 400;
+            font-size: 1.25rem;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .content {
+            display: flex;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .task-input {
+            position: relative;
+            height: 3rem;
+            padding: 25px;
+        }
+
+        .task-input span {
+            position: absolute;
+            top: 50%;
+            color: rgba(153, 153, 153, 0.65);
+            font-size: 20px;
+            transform: translate(17px, -50%);
+        }
+
+        .task-input input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            font-size: 14px;
+            border-radius: 5px;
+            padding: 0 20px 0 53px;
+            border: 1px solid #999;
+        }
+
+        .task-input input:focus, .task-input input.active {
+            padding-left: 0.2rem;
+            border: 2px solid #f12711;
+        }
+
+        .task-input input::placeholder {
+            color: #bfbfbf;
+        }
+
+        .task-input {
+            padding: 0.2rem;
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(154, 14, 14, 0.71);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(65, 5, 5, 0.71);
+        }
+
+        .list__container--primary {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-05);
+            margin: var(--space-05);
+            justify-content: space-between;
+            overflow: scroll;
+
+        }
+
+        .list__item--primary {
+            display: flex;
+            flex-direction: column;
+            border-radius: var(--space-025);
+            border: 1px solid var(--bg-accent);
+            background: linear-gradient(to right, var(--bg-accent), #fff);
+            transition: all 400ms ease;
+        }
+
+        .list__item--primary-trash {
+            display: flex;
+            flex-direction: column;
+            border-radius: var(--space-025);
+            border: 1px solid var(--bg-accent);
+            background: linear-gradient(to right, var(--bg-accent), rgba(213, 12, 66, 0.66));
+            transition: all 400ms ease;
+        }
+
+        .list__item--primary-trash:hover {
+            cursor: pointer;
+        }
+
+        [type="checkbox"] {
+            display: none;
+        }
+
+        .list-input-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 2.25rem;
+            margin-inline: var(--space-05);
+        }
+
+        .text--primary {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-clr);
+            transition: all 866ms var(--easing1);
+        }
+
+        .text--secondary {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--blueGray-clr-4);
+        }
+
+        .list__container--secondary {
+            transition: all 400ms var(--easing3);
+            height: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .list__item--secondary {
+            display: flex;
+            margin-inline: var(--space-05);
+            padding-inline: var(--space-05);
+            opacity: 0;
+            transform: translateY(-6rem);
+        }
+
+        .icon {
+            color: #ccc;
+        }
+
+        .list__item--primary:hover .list__container--secondary {
+            height: 5.75rem;
+            display: flex;
+            flex-direction: column;
+            transition-delay: 500ms;
+        }
+
+        .list__item--primary:hover .list__item--secondary {
+            transition: transform 400ms var(--easing3), opacity 450ms var(--easing2);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .list__container--primary :checked + label .icon {
+            color: var(--icon-clr);
+            transform: scale(1.5);
+            transition: all 266ms var(--easing1);
+            transition-delay: 500ms;
+        }
+
+        .list__container--primary :checked + label .text--primary {
+            animation: lineThrough 400ms forwards;
+        }
+
+        @keyframes lineThrough {
+            0% {
+                text-decoration: 2px line-through #0000;
+            }
+            100% {
+                text-decoration: 2px line-through #000;
+            }
+        }
+
     </style>
 </head>
 <body class="antialiased">
-<div
-    class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-
-    <div style="color: whitesmoke;">
-
-        <h1>TODO LIST</h1>
-
-
-        <h3>Add new item</h3>
-        <form method="post" action="{{ route('saveNewItem') }}" accept-charset="UTF-8">
-
-            {{ csrf_field() }}
-            <label for="newItem">Title :</label><br>
-            <input name="newItem"><br>
-            <label for="newItemDesc">Desc :</label><br>
-            <input name="newItemDesc"><br>
-            <button type="submit">save</button>
-
-        </form>
-        <div class="mt-8" style="font-size: 30px">
-            <table style="border: 1px solid #ffffff;overflow-y:scroll;height:400px;width:auto;display:block;">
-
-                <tr style="top: 0;z-index: 2;position: sticky;background-color: #1a202c;">
-                    <th style="border: 1px solid #ffffff;">Title</th>
-                    <th style="border: 1px solid #ffffff;" colspan="2">Desc.</th>
-
-                </tr>
-
+<div class="wrapper">
+    <article class="todo__container">
+        <header class="header">
+            <figure class="figure">
+                <figcaption class="title__caption">
+                    <h1 class="title title--primary">Todo's</h1>
+                    <h2 class="title title--secondary">to-do list</h2>
+                </figcaption>
+            </figure>
+        </header>
+        <section class="content">
+            <ul class="list__container list__container--primary" style="overflow-y: scroll;">
+                <div class="task-input">
+                    <span class="icon">
+                        <i class="fa-regular fa-pen"></i>
+                    </span>
+                    <input type="text" placeholder="Add a New Task + Enter">
+                </div>
                 @foreach($listItems as $item)
-
-                    <tr>
-                        <td style="border: 1px solid #ffffff;">
-                            @if($item->is_done!=0)
-                                <s>@endif
-                                    {{$item->title}}
-                                    @if($item->is_done!=0)</s>
-                            @endif
-                        </td>
-                        <td style="border: 1px solid #ffffff;">
-                            @if($item->is_done!=0)
-                                <s>@endif
-                                    {{$item->description}}
-                                    @if($item->is_done!=0)</s>
-                            @endif
-                        </td>
-
-                        <td>
-                            <form method="post" accept-charset="UTF-8" action="{{ route('setDone') }}">
-                                {{ csrf_field() }}
-                                <input hidden name="id" value="{{ $item->id }}">
-                                <button type="submit">done</button>
-                            </form>
-                        </td>
-                    </tr>
-
+                    <li class="list__item list__item--primary"
+                        @if($item->is_done!=0)
+                            onclick="fetch('{{ route('setDone') }}?id={{ $item->id }}&is_done=0')">
+                        <input type="checkbox" id="{{ $item->id }}" class="{{ $item->id }}" checked>
+                        @else
+                            onclick="fetch('{{ route('setDone') }}?id={{ $item->id }}&is_done=1')">
+                            <input type="checkbox" id="{{ $item->id }}" class="{{ $item->id }}">
+                        @endif
+                        <label for="{{ $item->id }}" class="list-input-label">
+						<span class="text--primary">{{ $item->title }}
+						</span>
+                            <span class="icon"><i class="fas fa-check"></i></span>
+                        </label>
+                        @if(isset($item->description) and strlen($item->description)>=1)
+                            <ul class="list__container list__container--secondary" hidden>
+                                <li class="list__item list__item--secondary">
+                                    <span class="text--secondary">{{ $item->description }}</span>
+                                </li>
+                            </ul>
+                        @endif
+                    </li>
                 @endforeach
+                <li class="list__item list__item--primary-trash"
+                    onclick="fetch('{{ route('clearList') }}')">
+                    <input type="checkbox" id="clear" class="clear">
+                    <label class="list-input-label">
+						<span class="text--primary">
+                                Clear List
+						</span>
+                        <span class="icon"><i class="fas fa-trash"></i></span>
+                    </label>
+                </li>
+                </li>
 
-            </table>
-        </div>
-
-        <div class="mt-8">
-
-            <a href="{{ route('clearList') }}">clear</a>
-
-        </div>
-
-
-    </div>
-
+            </ul>
+        </section>
+    </article>
 </div>
 </body>
+<script src="https://kit.fontawesome.com/9bdba8a8ac.js" crossorigin="anonymous"></script>
 </html>

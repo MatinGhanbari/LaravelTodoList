@@ -22,7 +22,7 @@ class TODOListItemController extends Controller
     public function setDone(Request $request)
     {
         $item = ListItem::find($request->id);
-        $item->is_done = 1;
+        $item->is_done = $request->is_done;
         $item->save();
 
         return redirect('/');
